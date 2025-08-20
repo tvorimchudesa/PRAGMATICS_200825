@@ -199,16 +199,27 @@ body {
   right: 2vw;
   text-align: right;
 }
-.side-text2:hover {
-  color: hsl(0, 0%, 100%);
-  text-shadow: 0 0 40px #fff, 0 0 80px #fff;
+  .side-text2:hover {
+    color: hsl(0, 0%, 100%);
+    text-shadow: 0 0 40px #fff, 0 0 80px #fff;
+  }
+
+.test-square {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }
 
 
-.gradient-mask-container {
-  position: fixed;
-  top: 0;
-  left: 0;
+  .gradient-mask-container {
+    position: fixed;
+    top: 0;
+    left: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
