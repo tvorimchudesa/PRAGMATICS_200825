@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Pragmatics Landing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <video class="bg-video" autoplay loop muted playsinline preload="metadata">
+      <source src="SOURCE/BG/BG.mp4" type="video/mp4" />
+    </video>
+
+    <div class="gradient-mask-container">
+      <div class="mask-anim-wrapper">
+        <img
+          src="SOURCE/PRAGMATICS%20BIG%20TXT/GRADIENT%20BG%201.png"
+          class="gradient-bg-masked"
+          alt="Gradient BG"
+        />
+      </div>
+    </div>
+
+    <div class="main-bg">
+      <video
+        class="masked-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        webkit-playsinline="true"
+      >
+        <source src="SOURCE/BG/BG.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="logo-container">
+      <video
+        id="logoVideo"
+        class="logo-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        webkit-playsinline="true"
+        width="1920"
+        height="1080"
+      >
+        <source src="SOURCE/Video%20Reel/reel%20mini.mp4" type="video/mp4" />
+      </video>
+      <canvas id="logo3d" width="1920" height="1080"></canvas>
+    </div>
+
+    <div class="side-text left">ABOUT US</div>
+    <div class="side-text right">SOCIAL</div>
+    <div class="side-text2 left">WORKS</div>
+    <div class="side-text2 right">CONTACTS</div>
+
+    <script src="logo3d.js" defer></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const bgVideo = document.querySelector('.bg-video')
+        const logoVideo = document.getElementById('logoVideo')
+        const maskedVideo = document.querySelector('.masked-video')
+        let bothReady = false
+        const logo = document.querySelector('.logo-container')
+        const mask = document.querySelector('.mask-anim-wrapper')
+
+        // Если мобильное устройство — сразу приближаем логотип и убираем анимацию, а обработчики не нужны
+        const isMobile = window.innerWidth <= 767
+        if (isMobile) {
+          logo.classList.add('expanded')
+          mask.classList.add('expanded')
+          logo.style.transition = 'none'
+          mask.style.transition = 'none'
+        } else {
+          logo.classList.add('expanded')
+          mask.classList.add('expanded')
+          logo.style.transition = 'none'
+          mask.style.transition = 'none'
+        }
+
+        function trySyncStart() {
+          if (
+            bgVideo.readyState >= 2 &&
+            logoVideo.readyState >= 2 &&
+            !bothReady
+          ) {
+            bothReady = true
+            bgVideo.currentTime = 0
+            logoVideo.currentTime = 0
+            bgVideo.play()
+            logoVideo.play()
+            maskedVideo.play()
+          }
+        }
+
+        setTimeout(() => {
+          bgVideo.play()
+          logoVideo.play()
+          maskedVideo.play()
+        }, 100)
+
+        bgVideo.addEventListener('loadeddata', trySyncStart)
+        logoVideo.addEventListener('loadeddata', trySyncStart)
+        maskedVideo.addEventListener('loadeddata', () => {
+          maskedVideo.play()
+        })
+
+        function syncLoop() {
+          bgVideo.currentTime = 0
+          logoVideo.currentTime = 0
+          bgVideo.play()
+          logoVideo.play()
+        }
+
+        bgVideo.addEventListener('ended', syncLoop)
+        logoVideo.addEventListener('ended', syncLoop)
+
+        setInterval(() => {
+          if (Math.abs(bgVideo.currentTime - logoVideo.currentTime) > 0.1) {
+            const avg = (bgVideo.currentTime + logoVideo.currentTime) / 2
+            bgVideo.currentTime = avg
+            logoVideo.currentTime = avg
+          }
+        }, 500)
+
+        function getTriggerZone() {
+          const w = window.innerWidth
+          const h = window.innerHeight
+          if (w <= 767) {
+            const zoneW = w * 0.6
+            const zoneH = h * 0.6
+            const zoneX = (w - zoneW) / 2
+            const zoneY = (h - zoneH) / 2
+            return { zoneX, zoneY, zoneW, zoneH }
+          } else {
+            const zoneW = w * 0.4
+            const zoneH = h * 0.4
+            const zoneX = (w - zoneW) / 2
+            const zoneY = (h - zoneH) / 2
+            return { zoneX, zoneY, zoneW, zoneH }
+          }
+        }
+
+        function isInTriggerZone(x, y) {
+          const { zoneX, zoneY, zoneW, zoneH } = getTriggerZone()
+          return (
+            x >= zoneX && x <= zoneX + zoneW && y >= zoneY && y <= zoneY + zoneH
+          )
+        }
+
+        function handleMouseMove(e) {
+          if (isInTriggerZone(e.clientX, e.clientY)) {
+            logo.classList.add('expanded')
+            mask.classList.add('expanded')
+          } else {
+            logo.classList.remove('expanded')
+            mask.classList.remove('expanded')
+          }
+        }
+
+        function handleTouch(e) {
+          e.preventDefault()
+          const touch = e.touches[0]
+          if (isInTriggerZone(touch.clientX, touch.clientY)) {
+            logo.classList.add('expanded')
+            mask.classList.add('expanded')
+          } else {
+            logo.classList.remove('expanded')
+            mask.classList.remove('expanded')
+          }
+        }
+
+        window.addEventListener('resize', () => {
+          const logoContainer = document.querySelector('.logo-container')
+          const logoVideo = document.getElementById('logoVideo')
+          if (logoVideo) {
+            logoVideo.style.width = '100%'
+            logoVideo.style.height = '100%'
+          }
+        })
+
+        window.dispatchEvent(new Event('resize'))
+      })
+    </script>
+  </body>
+</html>

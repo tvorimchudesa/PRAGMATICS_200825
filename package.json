@@ -1,0 +1,30 @@
+{
+  "name": "m",
+  "version": "1.0.0",
+  "description": "",
+  "main": "logo3d.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LolovR/https---github.com-LolovR-M.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LolovR/https---github.com-LolovR-M/issues"
+  },
+  "homepage": "https://github.com/LolovR/https---github.com-LolovR-M#readme",
+  "devDependencies": {
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.3"
+  }
+}
