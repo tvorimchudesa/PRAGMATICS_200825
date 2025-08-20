@@ -28,16 +28,13 @@ body {
   left: 50%;
   width: 1920px;
   height: 1080px;
-  transform: translate(-50%, -50%) scale(0.2);
+  transform: translate(-50%, -50%) scale(1.3);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
   pointer-events: none;
   transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.logo-container.expanded {
-  transform: translate(-50%, -50%) scale(1.3);
 }
 
 .logo-video {
@@ -245,7 +242,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(6.3);
   width: 60vw;
   height: 60vh;
   z-index: 2;
@@ -265,9 +262,6 @@ body {
   -moz-mask-size: contain;
   overflow: hidden;
 }
-.mask-anim-wrapper.expanded {
-  transform: translate(-50%, -50%) scale(6.3);
-}
 .gradient-bg-masked {
   position: absolute;
   top: 0;
@@ -286,9 +280,6 @@ body {
   -moz-mix-blend-mode: hard-light;
   z-index: 1;
   transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-  transform: scale(2);
-}
-.mask-anim-wrapper.expanded .gradient-bg-masked {
   transform: scale(0.3);
 }
 

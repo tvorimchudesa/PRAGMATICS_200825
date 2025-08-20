@@ -68,22 +68,6 @@
         const logoVideo = document.getElementById('logoVideo')
         const maskedVideo = document.querySelector('.masked-video')
         let bothReady = false
-        const logo = document.querySelector('.logo-container')
-        const mask = document.querySelector('.mask-anim-wrapper')
-
-        // Если мобильное устройство — сразу приближаем логотип и убираем анимацию, а обработчики не нужны
-        const isMobile = window.innerWidth <= 767
-        if (isMobile) {
-          logo.classList.add('expanded')
-          mask.classList.add('expanded')
-          logo.style.transition = 'none'
-          mask.style.transition = 'none'
-        } else {
-          logo.classList.add('expanded')
-          mask.classList.add('expanded')
-          logo.style.transition = 'none'
-          mask.style.transition = 'none'
-        }
 
         function trySyncStart() {
           if (
@@ -130,55 +114,7 @@
           }
         }, 500)
 
-        function getTriggerZone() {
-          const w = window.innerWidth
-          const h = window.innerHeight
-          if (w <= 767) {
-            const zoneW = w * 0.6
-            const zoneH = h * 0.6
-            const zoneX = (w - zoneW) / 2
-            const zoneY = (h - zoneH) / 2
-            return { zoneX, zoneY, zoneW, zoneH }
-          } else {
-            const zoneW = w * 0.4
-            const zoneH = h * 0.4
-            const zoneX = (w - zoneW) / 2
-            const zoneY = (h - zoneH) / 2
-            return { zoneX, zoneY, zoneW, zoneH }
-          }
-        }
-
-        function isInTriggerZone(x, y) {
-          const { zoneX, zoneY, zoneW, zoneH } = getTriggerZone()
-          return (
-            x >= zoneX && x <= zoneX + zoneW && y >= zoneY && y <= zoneY + zoneH
-          )
-        }
-
-        function handleMouseMove(e) {
-          if (isInTriggerZone(e.clientX, e.clientY)) {
-            logo.classList.add('expanded')
-            mask.classList.add('expanded')
-          } else {
-            logo.classList.remove('expanded')
-            mask.classList.remove('expanded')
-          }
-        }
-
-        function handleTouch(e) {
-          e.preventDefault()
-          const touch = e.touches[0]
-          if (isInTriggerZone(touch.clientX, touch.clientY)) {
-            logo.classList.add('expanded')
-            mask.classList.add('expanded')
-          } else {
-            logo.classList.remove('expanded')
-            mask.classList.remove('expanded')
-          }
-        }
-
         window.addEventListener('resize', () => {
-          const logoContainer = document.querySelector('.logo-container')
           const logoVideo = document.getElementById('logoVideo')
           if (logoVideo) {
             logoVideo.style.width = '100%'

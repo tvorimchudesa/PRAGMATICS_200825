@@ -214,40 +214,16 @@ let overlayImg = null // overlay отключён
 const overlayTexture = createTexture()
 
 // Анимация для градиента (overlay)
-let overlayScale = 1.0
-let targetOverlayScale = 10.0
-
-// Следим за классом .expanded у .logo-container для градиента
-function updateOverlayScaleByLogoState() {
-  const logo = document.querySelector('.logo-container')
-  if (logo && logo.classList.contains('expanded')) {
-    targetOverlayScale = 0.75
-  } else {
-    targetOverlayScale = 1.0
-  }
-}
-
-setInterval(updateOverlayScaleByLogoState, 50)
+let overlayScale = 0.75
+let targetOverlayScale = 0.75
 
 // overlayImg.onload = () => {
 //     gl.bindTexture(gl.TEXTURE_2D, overlayTexture);
 //     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, overlayImg);
 // };
 
-let videoScale = 20.0
-let targetVideoScale = 600.0
-
-// Следим за классом .expanded у .logo-container
-function updateVideoScaleByLogoState() {
-  const logo = document.querySelector('.logo-container')
-  if (logo && logo.classList.contains('expanded')) {
-    targetVideoScale = 0.75
-  } else {
-    targetVideoScale = 10.0
-  }
-}
-
-setInterval(updateVideoScaleByLogoState, 50)
+let videoScale = 0.75
+let targetVideoScale = 0.75
 
 // Проверка поддержки canvas filter (blur)
 function isCanvasFilterSupported() {
