@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite --open",
     "build": "vite build",
-    "preview": "vite preview --open"
+    "preview": "vite preview --open",
+    "convert:webp": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem SOURCE\\ELEMENT_3D -Filter *.png | ForEach-Object { $out = [System.IO.Path]::ChangeExtension($_.FullName, 'webp'); Write-Host '→' $_.Name '->' (Split-Path $out -Leaf); .\\node_modules\\cwebp-bin\\vendor\\cwebp.exe -lossless -q 100 -- $_.FullName -o $out }\""
   },
   "repository": {
     "type": "git",
@@ -21,11 +22,13 @@
   },
   "homepage": "https://github.com/LolovR/https---github.com-LolovR-M#readme",
   "devDependencies": {
+    "cwebp-bin": "^8.0.0",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "prettier": "^3.6.2",
-    "vite": "^7.1.3"
+    "vite": "^7.1.3",
+    "webp-converter-cli": "^0.0.5"
   },
   "dependencies": {
     "cwebp": "^3.2.0"

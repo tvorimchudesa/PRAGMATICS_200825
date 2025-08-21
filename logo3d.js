@@ -191,14 +191,14 @@ for (let i = 0; i < frameCount; i++) {
     }
     fallbackImg.onerror = () => {
       console.error(
-        `Ошибка загрузки маски: ${getResourcePath('SOURCE/ELEMENT_3D/ELEMENT 3D_' + num + '.png')}`
+        `Ошибка загрузки маски: ${getResourcePath('SOURCE/ELEMENT_3D/ELEMENT 3D_' + num + '.webp')}`
       )
     }
     fallbackImg.src = getResourcePath(
       'SOURCE/ELEMENT 3D/ELEMENT 3D_' + num + '.png'
     )
   }
-  img.src = getResourcePath('SOURCE/ELEMENT_3D/ELEMENT 3D_' + num + '.png')
+  img.src = getResourcePath('SOURCE/ELEMENT_3D/ELEMENT 3D_' + num + '.webp')
 }
 
 // Получаем видео по id, теперь оно вне .logo-container
