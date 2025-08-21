@@ -5,14 +5,12 @@ body {
   width: 100vw;
   height: 100vh;
   background: #0a3a5e;
- 
 }
-
-
 
 .bg-video {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -56,8 +54,8 @@ body {
   display: block;
   position: relative;
   z-index: 11;
-  filter: drop-shadow(0.03em -0.03em 0.02em rgba(0, 0, 0, 0.3)) 
-          drop-shadow(0.01em -0.01em 0.01em rgba(255, 255, 255, 0.1));
+  filter: drop-shadow(0.03em -0.03em 0.02em rgba(0, 0, 0, 0.3))
+    drop-shadow(0.01em -0.01em 0.01em rgba(255, 255, 255, 0.1));
   background: transparent !important;
   pointer-events: auto;
 }
@@ -110,7 +108,8 @@ body {
 }
 .main-bg {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 200;
@@ -156,13 +155,15 @@ body {
   top: 95%;
   transform: translateY(-50%);
   font-size: clamp(12px, 1vw, 24px);
-  color: rgba(81,98,115,0.6);
+  color: rgba(81, 98, 115, 0.6);
   font-family: 'Arial Black', Arial, sans-serif;
   letter-spacing: 0.2em;
   z-index: 300;
   user-select: none;
-  transition: color 0.3s, text-shadow 0.3s;
-  text-shadow: 0 0 20px rgba(255,255,255,0.1);
+  transition:
+    color 0.3s,
+    text-shadow 0.3s;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 .side-text.left {
   left: 2vw;
@@ -174,22 +175,25 @@ body {
 }
 .side-text:hover {
   color: hsl(0, 0%, 100%);
-  text-shadow: 0 0 40px #fff, 0 0 80px #fff;
+  text-shadow:
+    0 0 40px #fff,
+    0 0 80px #fff;
 }
-
 
 .side-text2 {
   position: fixed;
   top: 5%;
   transform: translateY(-50%);
   font-size: clamp(12px, 1vw, 24px);
-  color: rgba(81,98,115,0.6);
+  color: rgba(81, 98, 115, 0.6);
   font-family: 'Arial Black', Arial, sans-serif;
   letter-spacing: 0.2em;
   z-index: 300;
   user-select: none;
-  transition: color 0.3s, text-shadow 0.3s;
-  text-shadow: 0 0 20px rgba(255,255,255,0.1);
+  transition:
+    color 0.3s,
+    text-shadow 0.3s;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 .side-text2.left {
   left: 2vw;
@@ -201,9 +205,10 @@ body {
 }
 .side-text2:hover {
   color: hsl(0, 0%, 100%);
-  text-shadow: 0 0 40px #fff, 0 0 80px #fff;
+  text-shadow:
+    0 0 40px #fff,
+    0 0 80px #fff;
 }
-
 
 .gradient-mask-container {
   position: fixed;
@@ -283,7 +288,6 @@ body {
   transform: scale(0.3);
 }
 
-
 @media screen and (min-width: 1920px) {
   .logo-container {
     width: 84vw;
@@ -291,26 +295,24 @@ body {
     max-width: 2160px;
     max-height: 1215px;
   }
-  
+
   .side-text,
   .side-text2 {
     font-size: clamp(16px, 0.8vw, 20px);
   }
 }
 
-
 @media screen and (min-width: 1024px) and (max-width: 1919px) {
   .logo-container {
     width: 90vw;
     height: 50.625vw;
   }
-  
+
   .side-text,
   .side-text2 {
     font-size: clamp(14px, 0.9vw, 18px);
   }
 }
-
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .logo-container {
@@ -319,23 +321,22 @@ body {
     max-width: 1440px;
     max-height: 810px;
   }
-  
+
   .side-text,
   .side-text2 {
     font-size: clamp(12px, 1.2vw, 16px);
   }
-  
+
   .side-text.left,
   .side-text2.left {
     left: 3vw;
   }
-  
+
   .side-text.right,
   .side-text2.right {
     right: 3vw;
   }
 }
-
 
 @media screen and (max-width: 767px) {
   .logo-container {
@@ -344,63 +345,60 @@ body {
     max-width: 720px;
     max-height: 405px;
   }
-  
+
   .side-text,
   .side-text2 {
     font-size: clamp(10px, 2.5vw, 14px);
     letter-spacing: 0.1em;
   }
-  
+
   .side-text.left,
   .side-text2.left {
     left: 4vw;
   }
-  
+
   .side-text.right,
   .side-text2.right {
     right: 4vw;
   }
-  
+
   .side-text {
     top: 92%;
   }
-  
+
   .side-text2 {
     top: 8%;
   }
-  
 
   .side-text:hover,
   .side-text2:hover {
-    color: rgba(81,98,115,0.6);
-    text-shadow: 0 0 20px rgba(255,255,255,0.1);
+    color: rgba(81, 98, 115, 0.6);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
   }
 }
-
 
 @media screen and (max-width: 319px) {
   .logo-container {
     width: 114vw;
     height: 64.125vw;
   }
-  
+
   .side-text,
   .side-text2 {
     font-size: 10px;
     letter-spacing: 0.05em;
   }
-  
+
   .side-text.left,
   .side-text2.left {
     left: 5vw;
   }
-  
+
   .side-text.right,
   .side-text2.right {
     right: 5vw;
   }
 }
-
 
 @media screen and (max-width: 767px) and (orientation: portrait) {
   .logo-container {
@@ -409,19 +407,17 @@ body {
   }
 }
 
-
 @media screen and (max-width: 767px) and (orientation: landscape) {
   .logo-container {
     width: 84vw;
     height: 47.25vw;
   }
-  
+
   .side-text,
   .side-text2 {
     font-size: clamp(8px, 1.5vw, 12px);
   }
 }
-
 
 @media screen and (min-aspect-ratio: 16/9) {
   .logo-container {
@@ -430,16 +426,14 @@ body {
   }
 }
 
-
 @media screen and (min-aspect-ratio: 21/9) {
   .logo-container {
     width: 60vw;
     height: 33.75vw;
   }
-  
+
   .side-text,
   .side-text2 {
     font-size: clamp(12px, 0.7vw, 16px);
   }
 }
-
