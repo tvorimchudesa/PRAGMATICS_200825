@@ -217,7 +217,7 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  mix-blend-mode: hard-light;
+  mix-blend-mode: normal;
   z-index: 1;
 }
 .gradient-bg {
